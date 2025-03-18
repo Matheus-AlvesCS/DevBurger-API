@@ -2,12 +2,13 @@ import { Router } from "express";
 import multer from "multer";
 
 import multerConfig from "./config/multer";
-import authMiddleware from "./middlewares/auth";
+import authMiddleware from "./app/middlewares/auth";
 
 import UserController from "./app/controllers/UserController";
 import SessionController from "./app/controllers/SessionController";
 import ProductController from "./app/controllers/ProductController";
 import CategoryController from "./app/controllers/CategoryController";
+import OrderController from "./app/controllers/OrderController";
 
 const routes = new Router();
 
@@ -22,5 +23,9 @@ routes.get("/products", ProductController.index);
 
 routes.post("/categories", CategoryController.store);
 routes.get("/categories", CategoryController.index);
+
+routes.post("/orders", OrderController.store);
+routes.get("/orders", OrderController.index);
+routes.put("/orders/:id", OrderController.update);
 
 export default routes;
