@@ -102,7 +102,7 @@ class ProductController {
       }
     );
 
-    return response.status(200);
+    return response.status(200).json();
   }
 }
 
